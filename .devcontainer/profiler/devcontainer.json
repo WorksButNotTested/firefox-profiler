@@ -19,6 +19,6 @@
     "source=${localWorkspaceFolder},target=/home/ws,type=bind",
     "source=${localEnv:HOME},target=/home/share,type=bind"
   ],
-  "forwardPorts": [4242, 3000],
+  "forwardPorts": [4242],
   "postStartCommand": "nohup bash -c 'cd /root/profiler; yarn start&' >/dev/null 2>&1"
 }

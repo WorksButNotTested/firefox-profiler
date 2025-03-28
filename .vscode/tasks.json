@@ -1,0 +1,34 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+      {
+          "label": "Build Image",
+          "type": "shell",
+          "command": "docker buildx build -f Dockerfile -t profiler --target profiler ${workspaceFolder}",
+          "group": "build",
+          "options": {
+              "cwd": "${workspaceFolder}"
+          },
+          "presentation": {
+              "clear": true,
+              "reveal": "always",
+              "focus": true,
+          }
+      },
+      {
+          "label": "Export Image",
+          "type": "shell",
+          "command": "docker save -o ${workspaceFolder}/profiler.tar profiler",
+          "group": "build",
+          "options": {
+              "cwd": "${workspaceFolder}"
+          },
+          "presentation": {
+              "clear": true,
+              "reveal": "always",
+              "focus": true,
+          },
+          "dependsOn": "Build Image",
+      },
+  ]
+}
